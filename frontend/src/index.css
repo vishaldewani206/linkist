@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "./App.css";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Google Sans", sans-serif;
+}
+
+
+@theme{
+  --font-sans: "Google Sans", sans-serif;
+  --color-primary: #502274;
+  --color-secondary: #D2E823;
+  
+}
+
+@layer utilities{
+  .flex-center{
+    @apply flex justify-center items-center;
+  }
+  .flex-row-center{
+    @apply flex flex-row justify-center items-center;
+  }
+  .absolute-center{
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+}
