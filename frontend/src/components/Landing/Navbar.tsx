@@ -7,6 +7,22 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   useGSAP(()=>{
+    gsap.from(".nav-wrapper", {
+      y:-20,
+      opacity:0,
+      scaleX: 0.3
+    })
+    gsap.from(".links", {
+      opacity:0,
+      y:-10,
+      delay:0.7,
+    })
+
+    gsap.from(".heading", {
+      opacity:0,
+      y:-10,
+      delay:0.5
+    })
     
   },[])
 
@@ -30,14 +46,14 @@ export const Navbar = () => {
 
   return (
     <nav className="nav">
-      <div className={`nav-wrapper ${isOpen ? "active rounded-t-2xl md:rounded-2xl" : "rounded-2xl"}`}>
+      <div className={`nav-wrapper ${isOpen ? "active rounded-t-full md:rounded-full" : "rounded-full"}`}>
         <div>
-          <a className="text-xl font-bold text-primary" href="/">Linkist</a>
+          <a className="heading text-xl font-bold text-secondary" href="/">Linkist</a>
         </div>
         <div className="links">
           <Link className="hover-link" to={"/"}>Home</Link>
           <a className="hover-link" href="#about-us">About Us</a>
-          <Link to={"/login"} className="text-primary hover-link">Login</Link>
+          <Link to={"/login"} className="text-secondary hover-link">Login</Link>
         </div>
         
         <div onClick={handleHamburger} className="hamburger">
