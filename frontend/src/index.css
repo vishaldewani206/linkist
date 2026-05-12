@@ -15,14 +15,15 @@ body {
   
 }
 
-@layer utilities{
-  .flex-center{
-    @apply flex justify-center items-center;
+@utility flex-center{
+  @apply flex justify-center items-center;
+}
+
+
+  
+  @utility flex-col-center{
+    @apply flex flex-col justify-center items-center;
   }
-  .flex-row-center{
-    @apply flex flex-row justify-center items-center;
-  }
-  .absolute-center{
+  @utility absolute-center{
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
   }
-}

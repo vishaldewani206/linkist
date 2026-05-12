@@ -12,16 +12,17 @@ export const Navbar = () => {
       opacity:0,
       scaleX: 0.3
     })
-    gsap.from(".links", {
-      opacity:0,
-      y:-10,
-      delay:0.7,
-    })
 
     gsap.from(".heading", {
       opacity:0,
       y:-10,
       delay:0.5
+    })
+
+    gsap.from(".links", {
+      opacity:0,
+      y:-10,
+      delay:0.7,
     })
     
   },[])
@@ -30,9 +31,17 @@ export const Navbar = () => {
   const handleHamburger = (): void=>{
     document.querySelector(".nav-wrapper").classList.toggle("active")
     setIsOpen(prev => !prev)
-    gsap.from(".links", {
+    
+    
+    gsap.fromTo(".links", {
       scaleY: 0,
+      opacity:0,
+      y:-10,
       transformOrigin: "top"
+    },{
+      scaleY:1,
+      opacity:1,
+      y:0
     })
     gsap.fromTo(".hover-link", {
       opacity:0,
@@ -46,7 +55,7 @@ export const Navbar = () => {
 
   return (
     <nav className="nav">
-      <div className={`nav-wrapper ${isOpen ? "active rounded-t-full md:rounded-full" : "rounded-full"}`}>
+      <div className={`nav-wrapper ${isOpen ? "active rounded-t-2xl border-b-0 md:border-b-1 md:rounded-full" : "rounded-full"}`}>
         <div>
           <a className="heading text-xl font-bold text-secondary" href="/">Linkist</a>
         </div>
